@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pice extends Model
 {
-    //
+    public $timestamps = false;
 }

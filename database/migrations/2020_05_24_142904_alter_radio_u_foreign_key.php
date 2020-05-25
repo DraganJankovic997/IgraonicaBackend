@@ -14,13 +14,13 @@ class AlterRadioUForeignKey extends Migration
     public function up()
     {
         Schema::table('radio_us', function (Blueprint $table) {
-            $table->integer('zaposleni_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('lokacija_id')->unsigned()->nullable();
             $table->integer('pozicija_id')->unsigned()->nullable();
 
-            $table->foreign('zaposleni_id')
+            $table->foreign('user_id')
                 ->references('id')
-                ->on('zaposlenis')
+                ->on('users')
                 ->onDelete('cascade');
             $table->foreign('lokacija_id')
                 ->references('id')
@@ -42,8 +42,8 @@ class AlterRadioUForeignKey extends Migration
     public function down()
     {
         Schema::table('radio_us', function (Blueprint $table) {
-            $table->dropForeign(['zaposleni_id']);
-            $table->dropColumn('zaposleni_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
             $table->dropForeign(['lokacija_id']);
             $table->dropColumn('lokacija_id');
             $table->dropForeign(['pozicija_id']);
