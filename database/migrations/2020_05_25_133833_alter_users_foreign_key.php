@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterZaposlenisForeignKeys extends Migration
+class AlterUsersForeignKey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AlterZaposlenisForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('zaposlenis', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->integer('pozicija_trenutna_id')->unsigned()->nullable();
             $table->integer('lokacija_trenutna_id')->unsigned()->nullable();
 
@@ -36,12 +36,11 @@ class AlterZaposlenisForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('zaposlenis', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropForeign(['pozicija_trenutna_id']);
             $table->dropColumn('pozicija_trenutna_id');
             $table->dropForeign(['lokacija_trenutna_id']);
             $table->dropColumn('lokacija_trenutna_id');
         });
-
     }
 }
