@@ -26,6 +26,12 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'broj_telefona' => $faker -> numerify('+381(##) ### ####'),
         'jmbg' => $faker-> unique()->regexify('[0-9]{13}'),
-        'remember_token' => Str::random(10),
+        'pozicija_trenutna_id' => function () {
+            return factory(App\Pozicija::class)->create()->id;
+        },
+        'lokacija_trenutna_id' => function () {
+            return factory(App\Lokacija::class)->create()->id;
+        },
+        'remember_token' => Str::random(10)
     ];
 });

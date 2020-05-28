@@ -10,6 +10,10 @@ $factory->define(Lokacija::class, function (Faker $faker) {
         'naziv' => $faker -> unique()->city,
         'kvadratura' => $faker -> numberBetween($min = 50, $max = 1000),
         'adresa' => $faker -> address,
-        'deo_grada' => $faker -> streetName
+        'deo_grada' => $faker -> streetName,
+        'grad_id' => function () {
+            return factory(App\Grad::class)->create()->id;
+        }
+        
     ];
 });
