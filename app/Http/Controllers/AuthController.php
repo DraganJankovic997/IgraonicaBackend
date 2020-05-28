@@ -96,10 +96,4 @@ class AuthController extends Controller
         return Auth::guard();
     }
 
-    public function register(RegisterRequest $request)
-    {
-        $val = $request->validated();
-        $val['password'] = bcrypt($val['password']);
-        return User::create($val);
-    }
 }
