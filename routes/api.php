@@ -28,6 +28,5 @@ Route::group([
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
     Route::post('register', 'RegisterController@create');
-    Route::get('login', 'AuthController@login')->name('login');
 });
 
