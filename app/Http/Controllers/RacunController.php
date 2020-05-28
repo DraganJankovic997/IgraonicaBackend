@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PiceRequest;
+use App\Http\Requests\RacunRequest;
 use Illuminate\Http\Request;
-use App\Pice;
+use App\Racun;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-
-class PiceController extends Controller
+class RacunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class PiceController extends Controller
      */
     public function index()
     {
-        return Pice::get();    
+        return Racun::get();
     }
 
     /**
@@ -27,9 +26,9 @@ class PiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PiceRequest $request)
+    public function store(RacunRequest $request)
     {
-        return Pice::create($request->validated());
+        return Racun::create($request->validated());
     }
 
     /**
@@ -40,21 +39,20 @@ class PiceController extends Controller
      */
     public function show($id)
     {
-        return  $pice = Pice::findOrFail($id);
+        return  $racun = Racun::findOrFail($id);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Show the form for editing the specified resource.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PiceRequest $request, $id)
+    public function update(RacunRequest $request, $id)
     {
-        $pice = Pice::findOrFail($id);
-        $pice -> update($request->all());
-        return $pice;
+        $racun = Racun::findOrFail($id);
+        $racun -> update($request->all());
+        return $racun;    
     }
 
     /**
@@ -65,8 +63,8 @@ class PiceController extends Controller
      */
     public function destroy($id)
     {
-        $pice = Pice::findOrFail($id);
-        $pice -> delete();
-        return "Pice uspesno izbrisano!";
+        $racun = Racun::findOrFail($id);
+        $racun -> delete();
+        return "Racun uspesno izbrisan!";
     }
 }

@@ -31,6 +31,7 @@ Route::group([
 });
 
 Route::resources([
-    'pice' => 'PiceController'
+    'pice' => 'PiceController',
+    'racun' => 'RacunController'
 ]);
 
