@@ -30,3 +30,7 @@ Route::group([
     Route::post('register', 'RegisterController@create');
 });
 
+Route::resources([
+    'pice' => 'PiceController'
+]);
+
