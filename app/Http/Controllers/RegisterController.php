@@ -13,7 +13,6 @@ use App\Http\Requests\RegisterRequest;
 
 class RegisterController extends Controller
 {
-    use RegisterRequest;
 
     protected $redirectTo = '/login';
 
