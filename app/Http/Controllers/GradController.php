@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LokacijaRequest;
+use App\Http\Requests\GradRequest;
 use Illuminate\Http\Request;
-use App\Lokacija;
+use App\Grad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class LokacijaController extends Controller
+class GradController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class LokacijaController extends Controller
      */
     public function index()
     {
-        $lokacija = Lokacija::with('grad')-> paginate(10);
-        return $lokacija;
+        return Grad::get();
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -27,9 +27,9 @@ class LokacijaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(LokacijaRequest $request)
+    public function store(GradRequest $request)
     {
-        return Lokacija::create($request->validated());
+        return Grad::create($request->validated());
     }
 
     /**
@@ -40,10 +40,8 @@ class LokacijaController extends Controller
      */
     public function show($id)
     {
-        $lokacija = Lokacija::with('grad') -> findOrFail($id);
-        return $lokacija;
+        return  $grad = Grad::findOrFail($id);
     }
-
 
     /**
      * Update the specified resource in storage.
@@ -52,11 +50,11 @@ class LokacijaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GradRequest $request, $id)
     {
-        $lokacija = Lokacija::findOrFail($id);
-        $lokacija -> update($request->all());
-        return $lokacija;
+        $grad = Grad::findOrFail($id);
+        $grad -> update($request->all());
+        return $grad;
     }
 
     /**
@@ -67,8 +65,8 @@ class LokacijaController extends Controller
      */
     public function destroy($id)
     {
-        $lokacija = Lokacija::findOrFail($id);
-        $lokacija -> delete();
-        return "Lokacija uspesno izbrisano iz grada!";
+        $grad = Grad::findOrFail($id);
+        $grad -> delete();
+        return "Grad uspesno izbrisano!";
     }
 }
