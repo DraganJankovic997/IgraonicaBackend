@@ -16,7 +16,8 @@ class CreateRacunPicesTable extends Migration
         Schema::create('racun_pices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('pice_id')->unsigned()->nullable();
-            $table->integer('racun_id')->unsigned()->nullable();     
+            $table->integer('racun_id')->unsigned()->nullable(); 
+            $table->integer('kolicina');    
         });
     }
 
