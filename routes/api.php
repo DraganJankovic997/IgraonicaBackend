@@ -33,6 +33,7 @@ Route::group([
 Route::resources([
     'pice' => 'PiceController',
     'racun' => 'RacunController',
-    'racunPice' => 'Racun_PiceController'
+    'racunPice' => 'Racun_PiceController',
+    'lokacija' => 'LokacijaController'
 ]);
 
