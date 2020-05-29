@@ -35,6 +35,7 @@ Route::resources([
     'racun' => 'RacunController',
     'racunPice' => 'Racun_PiceController',
     'grad' => 'GradController',
-    'lokacija' => 'LokacijaController'
+    'lokacija' => 'LokacijaController',
+    'pozicija' => 'PozicijaController'
 ]);
 
