@@ -9,6 +9,8 @@ use App\Racun_Pice;
 use App\Racun;
 use App\Pice;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Racun_PiceRequest;
+
 
 class Racun_PiceController extends Controller
 {
@@ -19,19 +21,8 @@ class Racun_PiceController extends Controller
      */
     public function index()
     {
-        $racunPices = Racun_Pice::with('racun') -> paginate(10);
-        $racunPices = Racun_Pice::with('pice') -> paginate(10);
+        $racunPices = Racun_Pice::with('racun') -> with('pice') ->paginate(10);
         return $racunPices;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -40,9 +31,9 @@ class Racun_PiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Racun_PiceRequest $request)
     {
-        //
+        return Racun_Pice::create($request->validated());
     }
 
     /**
@@ -53,18 +44,8 @@ class Racun_PiceController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $racunPice = Racun_Pice::with('racun') -> with('pice') -> findOrFail($id);
+        return $racunPice;
     }
 
     /**
@@ -74,9 +55,11 @@ class Racun_PiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Racun_PiceRequest $request, $id)
     {
-        //
+        $racunPice = Racun_Pice::findOrFail($id);
+        $racunPice -> update($request->all());
+        return $racunPice;
     }
 
     /**
@@ -87,6 +70,8 @@ class Racun_PiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $racunPice = Racun_Pice::findOrFail($id);
+        $racunPice -> delete();
+        return "Pice uspesno izbrisano sa racuna!";
     }
 }
