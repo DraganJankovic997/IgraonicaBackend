@@ -38,6 +38,7 @@ Route::resources([
     'lokacija' => 'LokacijaController',
     'pozicija' => 'PozicijaController',
     'popust' => 'PopustController',
-    'racunPopust' => 'Racun_PopustController'
+    'racunPopust' => 'Racun_PopustController',
+    'termin' => 'TerminController'
 ]);
 
