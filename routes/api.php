@@ -37,6 +37,7 @@ Route::resources([
     'grad' => 'GradController',
     'lokacija' => 'LokacijaController',
     'pozicija' => 'PozicijaController',
-    'popust' => 'PopustController'
+    'popust' => 'PopustController',
+    'racunPopust' => 'Racun_PopustController'
 ]);
 
