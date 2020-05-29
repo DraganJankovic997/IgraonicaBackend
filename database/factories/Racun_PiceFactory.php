@@ -12,6 +12,7 @@ $factory->define(Racun_Pice::class, function (Faker $faker) {
         },
         'racun_id' => function () {
             return factory(App\Racun::class)->create()->id;
-        }
+        },
+        'kolicina' => $faker -> numberBetween($min = 1, $max = 20)
     ];
 });
