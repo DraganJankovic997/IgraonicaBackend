@@ -39,6 +39,8 @@ Route::resources([
     'pozicija' => 'PozicijaController',
     'popust' => 'PopustController',
     'racunPopust' => 'Racun_PopustController',
-    'sport' => 'SportController'
+    'sport' => 'SportController',
+    'termin' => 'TerminController'
+
 ]);
 
