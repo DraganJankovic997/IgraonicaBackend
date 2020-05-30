@@ -44,7 +44,9 @@ Route::resources([
     'klijent' => 'KlijentController',
     'radioU' => 'RadioUController',
     'grupa' => 'GrupaController',
+    'rezervacija' => 'RezervacijaController',
     'teren' => 'TerenController'
+
 ]);
 
 Route::get('/user/{id}', 'UserController@getById');
