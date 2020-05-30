@@ -71,4 +71,9 @@ class LokacijaController extends Controller
         $lokacija -> delete();
         return "Lokacija uspesno izbrisano iz grada!";
     }
+
+    public function lokacijasUnpaginated() 
+    {
+        return Lokacija::all();
+    }
 }

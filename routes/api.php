@@ -47,4 +47,5 @@ Route::resources([
 Route::get('/user/{id}', 'UserController@getById');
 Route::get('/user/lokacija/{lokacija_id}', 'UserController@getByLokacijaId');
 Route::put('/user/{id}', 'UserController@update');
+Route::get('/unpaginated-lokacija', 'LokacijaController@lokacijasUnpaginated');
 
