@@ -26,10 +26,10 @@ class UserRequest extends FormRequest
         return [
             'ime' => 'required|string|max:255',
             'prezime' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'password' => 'required|string|max:255',
-            'broj_telefona' => 'required|string|max:255',
-            'jmbg' => 'required|string|max:255'
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:6',
+            'broj_telefona' => 'required|string|broj_telefona|unique:users|max:255',
+            'jmbg' => 'required|string|jmbg|unique:users|max:255',
         ];
     }
 }
