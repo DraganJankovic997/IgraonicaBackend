@@ -21,8 +21,7 @@ class RadioUController extends Controller
      */
     public function index()
     {
-        $radioUs =  RadioU::with('user')->with('lokacija')->with('pozicija')->get();
-        return $radioUs;
+        return RadioU::with('user')->with('lokacija')->with('pozicija')->get();
     }
 
     /**
