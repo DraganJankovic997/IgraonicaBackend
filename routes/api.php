@@ -40,7 +40,8 @@ Route::resources([
     'popust' => 'PopustController',
     'racunPopust' => 'Racun_PopustController',
     'sport' => 'SportController',
-    'termin' => 'TerminController'
+    'termin' => 'TerminController',
+    'radioU' => 'RadioUController'
 
 ]);
 
