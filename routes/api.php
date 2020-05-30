@@ -40,8 +40,8 @@ Route::resources([
     'popust' => 'PopustController',
     'racunPopust' => 'Racun_PopustController',
     'sport' => 'SportController',
-    'termin' => 'TerminController'
-
+    'termin' => 'TerminController',
+    'klijent' => 'KlijentController'
 ]);
 
 Route::get('/user/{id}', 'UserController@getById');
