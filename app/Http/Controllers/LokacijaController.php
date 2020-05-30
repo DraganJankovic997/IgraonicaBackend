@@ -74,6 +74,6 @@ class LokacijaController extends Controller
 
     public function lokacijasUnpaginated() 
     {
-        return Lokacija::all();
+        return Lokacija::with('grad')->get();
     }
 }
