@@ -14,6 +14,7 @@ class CreateGrupasTable extends Migration
     public function up()
     {
         Schema::create('grupas', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('klijent_id')->unsigned();
             $table->string('naziv');
             $table->string('opis');

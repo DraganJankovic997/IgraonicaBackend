@@ -42,7 +42,8 @@ Route::resources([
     'sport' => 'SportController',
     'termin' => 'TerminController',
     'klijent' => 'KlijentController',
-    'radioU' => 'RadioUController'
+    'radioU' => 'RadioUController',
+    'grupa' => 'GrupaController'
 ]);
 
 Route::get('/user/{id}', 'UserController@getById');
