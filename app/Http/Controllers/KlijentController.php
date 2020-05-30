@@ -28,7 +28,6 @@ class KlijentController extends Controller
      */
     public function store(KlijentRequest $request)
     {
-        //ne radi
         return Klijent::create($request->validated());
     }
 
@@ -53,7 +52,6 @@ class KlijentController extends Controller
      */
     public function update(KlijentRequest $request, $id)
     {
-        //ne radi
         $klijent = Klijent::findOrFail($id);
         $klijent -> update($request->all());
         return $klijent;
