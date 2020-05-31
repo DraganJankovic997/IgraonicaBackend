@@ -43,14 +43,22 @@ Route::resources([
     'termin' => 'TerminController',
     'klijent' => 'KlijentController',
     'radioU' => 'RadioUController',
+<<<<<<< HEAD
     'grupa' => 'GrupaController',
     'rezervacija' => 'RezervacijaController',
     'teren' => 'TerenController'
 
+=======
+>>>>>>> pojedinac-controller
 ]);
 
 Route::get('/user/{id}', 'UserController@getById');
 Route::get('/user/lokacija/{lokacija_id}', 'UserController@getByLokacijaId');
 Route::put('/user/{id}', 'UserController@update');
 Route::get('/unpaginated-lokacija', 'LokacijaController@lokacijasUnpaginated');
+
+Route::get('/pojedinac','PojedinacController@getAll');
+Route::get('/pojedinac/{klijent_id}', 'PojedinacController@getByKlijentId');
+Route::post('/pojedinac','PojedinacController@store');
+
 
