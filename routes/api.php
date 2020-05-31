@@ -45,7 +45,8 @@ Route::resources([
     'radioU' => 'RadioUController',
     'grupa' => 'GrupaController',
     'rezervacija' => 'RezervacijaController',
-    'teren' => 'TerenController'
+    'teren' => 'TerenController',
+    'rezervacijaTermin' => 'Rezervacija_TerminController',
 
 ]);
 
