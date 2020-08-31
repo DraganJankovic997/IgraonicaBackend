@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Lokacija;
 
 class LokacijasTableSeeder extends Seeder
 {
@@ -11,6 +12,16 @@ class LokacijasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Lokacija::Class, 10)->create();
+        $lokacije = [Lokacija::BULEVAR, Lokacija::SAVA_CENTAR, Lokacija::LIMAN];
+
+        foreach($lokacije as $lokacija) {
+            Lokacija::insert([
+                'naziv' => $lokacija['naziv'],
+                'kvadratura' => $lokacija['kvadratura'],
+                'adresa' => $lokacija['adresa'],
+                'deo_grada' => $lokacija['deo_grada'],
+                'grad_id' => $lokacija['grad_id']
+            ]);
+        }
     }
 }

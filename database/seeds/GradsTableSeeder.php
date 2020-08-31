@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Grad;
 class GradsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +11,13 @@ class GradsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Grad::Class, 10)->create();
+        $gradovi = [Grad::NOVI_SAD, Grad::BEOGRAD, Grad::CACAK, Grad::NIS];
+
+        foreach ($gradovi as $grad) {
+            Grad::insert([
+                'naziv' => $grad['naziv'],
+                'postanski_kod' => $grad['postanski_kod']
+            ]);
+        }
     }
 }

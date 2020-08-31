@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Pozicija;
 
 class PozicijasTableSeeder extends Seeder
 {
@@ -11,6 +12,12 @@ class PozicijasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Pozicija::Class, 10)->create();
+        $pozicije = [Pozicija::POSLOVODJA, Pozicija::KASIR, Pozicija::ODRZAVANJE, Pozicija::KONOBAR];
+
+        foreach ($pozicije as $pozicija) {
+            Pozicija::insert([
+                'naziv' => $pozicija
+            ]);
+        }
     }
 }

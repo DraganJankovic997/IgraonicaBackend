@@ -11,6 +11,6 @@ class TerminsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Termin::Class, 10)->create();
+
     }
 }

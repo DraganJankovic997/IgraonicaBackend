@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Sport;
 
 class SportsTableSeeder extends Seeder
 {
@@ -11,6 +12,12 @@ class SportsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Sport::Class, 10)->create();
+        $sportovi = [Sport::BILIJAR, Sport::KUGLANJE, Sport::PIKADO];
+
+        foreach ($sportovi as $sport) {
+            Sport::insert([
+                'naziv' => $sport
+            ]);
+        }
     }
 }

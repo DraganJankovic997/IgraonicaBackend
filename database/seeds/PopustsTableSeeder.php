@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Popust;
 
 class PopustsTableSeeder extends Seeder
 {
@@ -11,6 +12,13 @@ class PopustsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Popust::Class, 10)->create();
+        $popusti = [Popust::STUDENTSKI, Popust::KUPON, Popust::REDOVNI];
+
+        foreach ($popusti as $popust) {
+            Popust::insert([
+                'oznaka_popust' => $popust['oznaka_popusta'],
+                'vrednost_popust' => $popust['vrednost_popusta']
+            ]);
+        }
     }
 }

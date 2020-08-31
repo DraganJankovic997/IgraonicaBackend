@@ -72,7 +72,7 @@ class LokacijaController extends Controller
         return "Lokacija uspesno izbrisano iz grada!";
     }
 
-    public function lokacijasUnpaginated() 
+    public function lokacijasUnpaginated()
     {
         return Lokacija::with('grad')->get();
     }
