@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Pice;
 
 class PicesTableSeeder extends Seeder
 {
@@ -11,6 +12,13 @@ class PicesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Pice::Class, 10)->create();
+        $pica = [Pice::FANTA, Pice::COCA_COLA, Pice::ZAJECARSKO, PICE::KISELA_VODA];
+
+        foreach($pica as $pice){
+            Pice::insert([
+                'Naziv_Pica' => $pice['Naziv_Pica'],
+                'Cena_Pica' => $pice['Cena_Pica']
+            ]);
+        }
     }
 }
