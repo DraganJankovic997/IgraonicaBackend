@@ -20,8 +20,7 @@ class TerenController extends Controller
      */
     public function index()
     {
-        $teren = Teren::with('sport') -> with('lokacija')->paginate(10);
-        return $teren;
+        return Teren::with('sport') -> with('lokacija')->get();
     }
 
 
