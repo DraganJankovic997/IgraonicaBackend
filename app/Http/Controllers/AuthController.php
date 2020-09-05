@@ -32,7 +32,9 @@ class AuthController extends Controller
         $credentials = $request->validated();
 
         if ($token = $this->guard()->attempt($credentials)) {
-            return $this->respondWithToken($token);
+            $response['access_token'] = $token;
+            $response['user'] = $this->guard()->user();
+            return $response;
         }
 
         return response()->json(['error' => 'Unauthorized'], 401);
