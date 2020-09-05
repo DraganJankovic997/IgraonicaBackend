@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\Http\Controllers\Controller;
 use App\Rezervacija;
-use App\Teren;
-use App\Klijent;
-use App\Racun;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RezervacijaRequest;
+use App\Sport;
 
 class RezervacijaController extends Controller
 {
@@ -21,7 +15,11 @@ class RezervacijaController extends Controller
      */
     public function index()
     {
-        $rezervacijas = Rezervacija::with('teren') -> with('klijent') -> with('racun')->paginate(10);
+        $rezervacijas = Rezervacija::with('teren') -> with('klijent') -> with('racun')->get();
+        foreach ($rezervacijas as $index => $rez) {
+            $rezervacijas[$index]['teren']['sport'] = Sport::findOrFail($rez['teren']['sport_id']);
+        }
+
         return $rezervacijas;
     }
 
