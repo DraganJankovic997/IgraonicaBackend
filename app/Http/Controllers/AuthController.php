@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use Auth;
 use App\Http\Requests\LoginRequest;
+use App\Pozicija;
+use App\Lokacija;
 
 class AuthController extends Controller
 {
@@ -34,6 +36,8 @@ class AuthController extends Controller
         if ($token = $this->guard()->attempt($credentials)) {
             $response['access_token'] = $token;
             $response['user'] = $this->guard()->user();
+            $response['user']['pozicija'] = Pozicija::findOrFail($this->guard()->user()->pozicija_trenutna_id);
+            $response['user']['lokacija'] = Lokacija::findOrFail($this->guard()->user()->lokacija_trenutna_id);
             return $response;
         }
 
