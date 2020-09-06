@@ -59,4 +59,6 @@ Route::get('/pojedinac','PojedinacController@getAll');
 Route::get('/pojedinac/{klijent_id}', 'PojedinacController@getByKlijentId');
 Route::post('/pojedinac','PojedinacController@store');
 
+Route::get('/pica-za-racun/{racun_id}', 'Racun_PiceController@getForRacun');
+
 

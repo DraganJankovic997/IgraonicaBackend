@@ -33,7 +33,19 @@ class Racun_PiceController extends Controller
      */
     public function store(Racun_PiceRequest $request)
     {
-        return Racun_Pice::create($request->validated());
+        $racun_pice = $request->validated();
+        Racun_Pice::create($racun_pice);
+        $pica = Racun_Pice::where('racun_id', $racun_pice['racun_id'])->with('pice')->get();
+        $ukupno = 0;
+        foreach ($pica as $rp)
+        {
+            $ukupno += $rp['kolicina'] * $rp['pice']['Cena_Pica'];
+        }
+        $racun = Racun::findOrFail($racun_pice['racun_id']);
+        $racun->ukupno = $ukupno;
+
+
+        return $racun->save();
     }
 
     /**
@@ -72,6 +84,12 @@ class Racun_PiceController extends Controller
     {
         $racunPice = Racun_Pice::findOrFail($id);
         $racunPice -> delete();
+
         return "Pice uspesno izbrisano sa racuna!";
+    }
+
+    public function getForRacun($racun_id)
+    {
+        return  Racun_Pice::where('racun_id', $racun_id)->with('pice')->get();
     }
 }
