@@ -16,7 +16,8 @@ class SportsTableSeeder extends Seeder
 
         foreach ($sportovi as $sport) {
             Sport::insert([
-                'naziv' => $sport
+                'naziv' => $sport['naziv'],
+                'cena_po_satu' => $sport['cena_po_satu']
             ]);
         }
     }

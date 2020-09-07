@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Racun;
 
 class RacunsTableSeeder extends Seeder
 {
@@ -11,6 +12,15 @@ class RacunsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Racun::Class, 10)->create();
+        $racuni = [Racun::RACUN_PRVI, Racun::RACUN_DRUGI];
+
+        foreach($racuni as $racun){
+            Racun::insert([
+                'ukupno' => $racun['ukupno'],
+                'placeno' => $racun['placeno'],
+                'created_at' => $racun['created_at'],
+                'updated_at' => $racun['updated_at']
+            ]);
+        }
     }
 }

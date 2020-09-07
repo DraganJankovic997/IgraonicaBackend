@@ -15,8 +15,7 @@ class CreateTerminsTable extends Migration
     {
         Schema::create('termins', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('oznaka_termina');
-            $table->float('cena_termina');
+            $table->string('vreme_termina');
         });
     }
 
