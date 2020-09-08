@@ -28,6 +28,15 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
+    public function lokacija()
+    {
+        return $this->belongsTo('App\Lokacija','lokacija_trenutna_id', 'id');
+    }
+    public function pozicija()
+    {
+        return $this->belongsTo('App\Pozicija','pozicija_trenutna_id','id');
+
+    }
 
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
