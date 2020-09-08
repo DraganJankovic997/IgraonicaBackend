@@ -19,7 +19,7 @@ class GrupaController extends Controller
      */
     public function index()
     {
-        $grupas = Grupa::with('klijent') ->paginate(10);
+        $grupas = Grupa::with('klijent') ->get();
         return $grupas;
     }
 
