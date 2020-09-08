@@ -16,7 +16,7 @@ class CreateRadioUSTable extends Migration
         Schema::create('radio_us', function (Blueprint $table) {
             $table->increments('id');
             $table->date('radio_od');
-            $table->date('radio_do')->nullable();
+            $table->date('radio_do');
         });
     }
 
