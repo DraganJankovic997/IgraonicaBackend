@@ -17,9 +17,7 @@ class RacunsTableSeeder extends Seeder
         foreach($racuni as $racun){
             Racun::insert([
                 'ukupno' => $racun['ukupno'],
-                'placeno' => $racun['placeno'],
-                'created_at' => $racun['created_at'],
-                'updated_at' => $racun['updated_at']
+                'placeno' => $racun['placeno']
             ]);
         }
     }

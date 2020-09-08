@@ -73,4 +73,11 @@ class RadioUController extends Controller
         $radioU -> delete();
         return "Radio_U uspesno izbrisano!";
     }
+    public function forUser($id)
+    {
+        return RadioU::where('user_id', $id)
+            ->with('lokacija')
+            ->with('pozicija')
+            ->get();
+    }
 }

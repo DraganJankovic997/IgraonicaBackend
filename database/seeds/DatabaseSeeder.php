@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PopustsTableSeeder::class);
 //        $this->call(UsersTableSeeder::class);
         $this->call(PicesTableSeeder::class);
-//        $this->call(RacunsTableSeeder::class);
+        $this->call(RacunsTableSeeder::class);
 //        $this->call(Racun_PopustsTableSeeder::class);
 //        $this->call(Radio_UsTableSeeder::class);
 //        $this->call(Racun_PicesTableSeeder::class);

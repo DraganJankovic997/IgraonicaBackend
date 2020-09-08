@@ -83,7 +83,19 @@ class Racun_PiceController extends Controller
     public function destroy($id)
     {
         $racunPice = Racun_Pice::findOrFail($id);
+
+        $racunPiceID = $racunPice->racun_id;
         $racunPice -> delete();
+        $pica = Racun_Pice::where('racun_id', $racunPiceID)->with('pice')->get();
+        $ukupno = 0;
+        foreach ($pica as $rp)
+        {
+            $ukupno += $rp['kolicina'] * $rp['pice']['Cena_Pica'];
+        }
+        $racun = Racun::findOrFail($racunPiceID);
+        $racun->ukupno = $ukupno;
+
+        $racun->save();
 
         return "Pice uspesno izbrisano sa racuna!";
     }

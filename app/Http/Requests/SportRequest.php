@@ -24,7 +24,8 @@ class SportRequest extends FormRequest
     public function rules()
     {
         return [
-            'naziv' => 'required|string|max:255'
+            'naziv' => 'required|string|max:255',
+            'cena_po_satu' => 'required|numeric'
         ];
     }
 }
