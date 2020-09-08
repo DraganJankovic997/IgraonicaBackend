@@ -22,7 +22,7 @@ class UserController extends Controller
 
     public function getById($id)
     {
-        return User::findOrFail($id);
+        return  User::with('lokacija') -> with('pozicija')-> findOrFail($id);
     }
 
     public function getByLokacijaId($lokacija_id)
