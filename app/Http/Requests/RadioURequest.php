@@ -25,7 +25,7 @@ class RadioURequest extends FormRequest
     {
         return [
             'radio_od' => 'required|date',
-            'radio_do' => 'date',
+            'radio_do' => 'required|date',
             'user_id' => 'required|exists:users,id',
             'lokacija_id' => 'required|exists:lokacijas,id',
             'pozicija_id' => 'required|exists:pozicijas,id',
